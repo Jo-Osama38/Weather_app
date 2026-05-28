@@ -13,7 +13,24 @@
         <input type="text" name="city" >
         <button type="submit">Submit</button>
     </form>
+    {% if error %}
+        <h1>{{error}}</h1>
+    {% else %}
+        {% if city_name %}
+            <h1>you city is {{city_name}} </h1>
+            <img src="https:{{icon}}" >
+            <h1>codition: {{codition}} </h1>
+            <h1>temp: {{temp}}.c </h1>
+            <h1>FeelingTemp: {{FeelingTemp}}.c </h1>
+            <h1>humidity: {{humidity}} %</h1>
+            <h1>windspeed: {{windspeed}} </h1>
+            <h1>time: {{time}} </h1>
+            <h1>date: {{date}} </h1>
+        {% else %}
+            <h1>Enter City You Want Know Weather</h1>
+        {% endif %}
+    {% endif %}
+    
 
-    <h1>you city is {{city}} </h1>
 </body>;
 </html>

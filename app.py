@@ -1,11 +1,47 @@
 from flask import Flask ,render_template,request
+import requests 
 
 app = Flask(__name__)
 
 @app.route("/" ,methods=['GET','POST'])
 def home():
-    city = request.form.get('city')
-    return render_template ('index.html' , city=city)
+        city_name = None
+        icon = None
+        codition = None
+        temp = None
+        FeelingTemp = None
+        humidity = None
+        windspeed = None
+        localtime = None
+        time = None
+        date = None
+        error = None
+ 
+        if request.method =="POST":
+            city_name = request.form.get('city')
+            API_KEY = "9548c753dfdf4b609b2182935262805"
+            url = f"https://api.weatherapi.com/v1/current.json?key={API_KEY}&q={city_name}&aqi=no"
+            response = requests.get(url)
+            if response.status_code == 200:
+                data = response.json()
+                icon = data["current"]["condition"]["icon"]
+                codition = data["current"]["condition"]["text"]
+                temp = data["current"]["temp_c"]
+                FeelingTemp = data["current"]["feelslike_c"]
+                humidity = data["current"]["humidity"]
+                windspeed = data["current"]["wind_kph"]
+                localtime = data["location"]["localtime"].split()
+                time = localtime[1]
+                date = localtime[0]
+                error = None
+            elif response.status_code != 200:
+                error = "City Not Found"
+
+
+
+        return render_template('index.html', city_name=city_name, icon=icon, codition=codition, 
+                                temp=temp, FeelingTemp=FeelingTemp, humidity=humidity, windspeed=windspeed,
+                                    time=time, date=date,error=error)
 
 if __name__ == "__main__":
     app.run(debug=True)
