@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Weather App</title>
     <link rel="stylesheet" href="{{ url_for('static',filename= 'style.css') }}">
 </head>
@@ -20,9 +20,26 @@
         {% else %}
             {% if city_name %}
                 <h1>you city is {{city_name}} </h1>
-                <div class="card_icon"><img src="https:{{icon}}" ></div>
+
+                <div class="card_icon">
+                    {% if "sunny" in condition.lower() or "clear" in condition.lower() %}
+                        <i class="weathericon bi-brightness-high-fill"></i>
+                    {% elif condition.lower() in ["cloudy","overcast","mist","partly cloudy"] %}
+                        <i class="weathericon bi-cloud-sun-fill "></i>
+                    {% elif "rain" in condition.lower() %}
+                        <i class="weathericon bi-cloud-drizzle-fill"></i>
+                    {% elif "storm" in condition.lower() or "thunder" in condition.lower() %}
+                        <i class="weathericon bi-cloud-lightning-rain-fill "></i>
+                    {% elif condition.lower() in ["sandstorm","dust","windy"] or "fog" in condition.lower() %}
+                         <i class="weathericon bi-wind"></i>
+                    {% elif condition.lower() in ["ice pellets","blizzard"] or "snow" in condition.lower() %}
+                        <i class="weathericon bi-snow "></i>
+                    
+                    {% endif %}
+
+                </div>
                 
-                <h1>codition: {{codition}} </h1>
+                <h1>condition: {{condition}} </h1>
                 <h1>temp: {{temp}}.c </h1>
                 <h1>FeelingTemp: {{FeelingTemp}}.c </h1>
                 <h1>humidity: {{humidity}} %</h1>
@@ -35,5 +52,5 @@
         {% endif %}
     </div>
 
-</body>;
+</body>
 </html>

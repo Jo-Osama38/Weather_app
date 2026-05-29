@@ -1,13 +1,14 @@
 from flask import Flask ,render_template,request
 import requests 
 
+
 app = Flask(__name__)
 
 @app.route("/" ,methods=['GET','POST'])
 def home():
         city_name = None
         icon = None
-        codition = None
+        condition = None
         temp = None
         FeelingTemp = None
         humidity = None
@@ -25,7 +26,7 @@ def home():
             if response.status_code == 200:
                 data = response.json()
                 icon = data["current"]["condition"]["icon"]
-                codition = data["current"]["condition"]["text"]
+                condition = data["current"]["condition"]["text"]
                 temp = data["current"]["temp_c"]
                 FeelingTemp = data["current"]["feelslike_c"]
                 humidity = data["current"]["humidity"]
@@ -39,7 +40,7 @@ def home():
 
 
 
-        return render_template('index.html', city_name=city_name, icon=icon, codition=codition, 
+        return render_template('index.html', city_name=city_name, icon=icon, condition=condition, 
                                 temp=temp, FeelingTemp=FeelingTemp, humidity=humidity, windspeed=windspeed,
                                     time=time, date=date,error=error)
 
