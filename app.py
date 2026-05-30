@@ -1,5 +1,6 @@
 from flask import Flask ,render_template,request
 import requests 
+import random
 
 
 app = Flask(__name__)
@@ -16,7 +17,9 @@ def home():
         pressure = None
         clouds= None
         visibalty = None
+        bg_class = None
         localtime = None
+        uv = None
         time = None
         date = None
         error = None
@@ -37,10 +40,31 @@ def home():
                 pressure = data["current"]["pressure_mb"]
                 clouds = data["current"]["cloud"]
                 visibalty = data["current"]["vis_km"]
+                uv = data["current"]["uv"]
                 localtime = data["location"]["localtime"].split()
                 time = localtime[1]
                 date = localtime[0]
                 error = None
+                if "sunny" in condition.lower() or "clear" in condition.lower():
+                     classes = ["sky","sky1","sky2","sky3"]
+                     bg_class = random.choice(classes)
+                elif condition.lower() in ["cloudy","overcast","mist","partly cloudy"]:
+                     classes = ["cloud1","cloud2","cloud3","cloud4"]
+                     bg_class = random.choice(classes)
+                elif "rain" in condition.lower():
+                    classes = ["rain1","rain2","rain3"]
+                    bg_class = random.choice(classes)
+                elif "storm" in condition.lower() or "thunder" in condition.lower():
+                    classes = ["storm1","storm2","storm3"]
+                    bg_class = random.choice(classes)
+                elif condition.lower() in ["sandstorm","dust","windy"] or "fog" in condition.lower():
+                    classes = ["windy1","windy2"]
+                    bg_class = random.choice(classes)
+                elif condition.lower() in ["ice pellets","blizzard"] or "snow" in condition.lower():
+                    classes = ["snow1","snow2"]
+                    bg_class = random.choice(classes) 
+            
+
             elif response.status_code != 200:
                 error = "City Not Found"
 
@@ -48,7 +72,8 @@ def home():
 
         return render_template('index.html', city_name=city_name, icon=icon, condition=condition, 
                                 temp=temp, FeelingTemp=FeelingTemp, humidity=humidity, windspeed=windspeed,
-                                    time=time, date=date,error=error, pressure=pressure,clouds= clouds, visibalty=visibalty)
+                                    time=time, date=date,error=error, pressure=pressure,clouds= clouds, 
+                                    visibalty=visibalty, uv=uv, bg_class=bg_class )
 
 if __name__ == "__main__":
     app.run(debug=True)
