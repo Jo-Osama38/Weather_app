@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Weather App</title>
     <link rel="stylesheet" href="{{ url_for('static',filename= 'style.css') }}">
 </head>
 <body>
     <div class="body">
-        <h1> Hello weather app  like</h1>
 
         <form method="post">
             <input type="text" name="city" placeholder="City Name" >
@@ -19,33 +19,56 @@
             <h1>{{error}}</h1>
         {% else %}
             {% if city_name %}
-                <h1>you city is {{city_name}} </h1>
 
                 <div class="card_icon">
                     {% if "sunny" in condition.lower() or "clear" in condition.lower() %}
-                        <i class="weathericon bi-brightness-high-fill"></i>
+                        <img class = "weatherImg" src="static/sun.png" >
                     {% elif condition.lower() in ["cloudy","overcast","mist","partly cloudy"] %}
-                        <i class="weathericon bi-cloud-sun-fill "></i>
+                        <img class = "weatherImg" src="static/cloudy.png" >
                     {% elif "rain" in condition.lower() %}
-                        <i class="weathericon bi-cloud-drizzle-fill"></i>
+                        <img class = "weatherImg" src="static/rainy-day.png" >
                     {% elif "storm" in condition.lower() or "thunder" in condition.lower() %}
-                        <i class="weathericon bi-cloud-lightning-rain-fill "></i>
+                        <img class = "weatherImg" src="static/storm.png" >
                     {% elif condition.lower() in ["sandstorm","dust","windy"] or "fog" in condition.lower() %}
-                         <i class="weathericon bi-wind"></i>
+                        <img class = "weatherImg" src="static/windy.png" >
                     {% elif condition.lower() in ["ice pellets","blizzard"] or "snow" in condition.lower() %}
-                        <i class="weathericon bi-snow "></i>
+                        <img class = "weatherImg" src="static/snowflake.png" >
                     
                     {% endif %}
+                    
+                    <h1 class="tempter">{{temp}}°c </h1>
+                    <h4>Temperature</h4>
+                    <h2>{{condition}} </h2>
+                    <img class = "row" src="static/curve-arrow.png" >
+                    <img class = "DRow" src="static/curved-arrow-with-broken-line.png" >
+                    <h4 id="h4real">RealFeel</h4>
+                    <img class = "row" id="downrow" src="static/down-arrow.png" >
+                    <h1 class="tempter" id="realtemp">{{FeelingTemp}}°c</h1>
+                    <h4 id="h4condition">Condition</h4>
+                    <img class = "row" id="iconrow" src="static/arrow-down.png" >
 
-                </div>
+
+                </div >
                 
-                <h1>condition: {{condition}} </h1>
-                <h1>temp: {{temp}}.c </h1>
-                <h1>FeelingTemp: {{FeelingTemp}}.c </h1>
-                <h1>humidity: {{humidity}} %</h1>
-                <h1>windspeed: {{windspeed}} </h1>
-                <h1>time: {{time}} </h1>
-                <h1>date: {{date}} </h1>
+                 
+
+                <div class="infrmation_card">
+                    <h3 class="title"> {{ city_name}} - {{time}} </h3>
+                    <h3 class="date"> {{date}} </h3> 
+                    <hr>
+                    <h3 class="humidity"> <span>Humidity</span> {{humidity}} %</h3>
+                    <hr>
+                    <h3 class="wind"> <span>Wind</span> {{windspeed}} m/s </h3>
+                    <hr>
+                    <h3 class="pressure"> <span>Pressure</span> {{pressure}} mb </h3>
+                    <hr>
+                    <h3 class="clouds"> <span>Cloud Coverage</span> {{clouds}} % </h3>
+                    <hr>
+                    <h3 class="visibalty"> <span>Visibility</span> {{visibalty}} km </h3>
+                    <hr>
+                    
+                </div>
+
             {% else %}
                 <h1>Enter City You Want Know Weather</h1>
             {% endif %}

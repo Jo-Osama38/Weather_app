@@ -2,22 +2,25 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
+
 }
 html{
-    background: linear-gradient(to right, rgb(132, 132, 132), rgb(86, 86, 86)) ;
+    background-image: url('sky.jpg');
+    background-position: center;
+    background-repeat: none;
 }
 .body{
-    background-color: aliceblue;
+    background-color: rgba(255, 255, 255, 0.4);
     height: 46.5em;
     display: inline-block;
-    margin: 2em;
-    margin-left: 2.4em;
-    width: 94.5%;
+    margin: 2.5em;
+    margin-left: 5em;
+    width: 90%;
     border-radius: 1em;
-    box-shadow: 0em 1rem 3rem rgb(0, 0, 0);
+    box-shadow: 0em 0em 3rem rgb(0, 0, 0);
     overflow: scroll;
-    position: relative;
-    
+    position: relative;    
 }
 form{
     
@@ -59,26 +62,168 @@ button{
 
 }
 .card_icon{
-    background-color: white;
-    height: 38em;
+    background-color : rgba(255, 255, 255, 0.5);
+    padding: 1.5em;
+    padding-left: 3em;
+
+    height: 37em;
     display: inline-block;
     margin: 1em;
-    width: 30em;
+    width: 55%;
     position:absolute;
     top: 6em;
-    right: 2em;
+    left: 2em;
     border-radius: 1em;
-    box-shadow: 0em 0rem 0.5rem rgb(10, 182, 255);
+    border: white solid;
+    box-shadow: 0em 0rem 0.5rem rgb(255, 255, 255);
+
 }
 
-.weathericon{
-    padding: 1em;
-    font-size: 9em;
+.weatherImg{
+    display: inline-block;
+    width: 35%;
+    height: auto;
+    margin-right: 2.5em;
+    
+}
+.row{
+    display: inline-block;
+    width: 15%;
+    height: auto;
+    margin-right: 2.5em;
+    position: absolute;
+    top: 3em;
+    right: 10.5em;
+    
+}
+.DRow{
+    display: inline-block;
+    width: 17%;
+    height: auto;
+    margin-right: 2.5em;
+    position: absolute;
+    top: 16.5em;
+    right: 11em;
+
+}
+
+
+.tempter{
+
     color: orange;
+    font-size: 8em;
+    margin: 0;
+    display: inline-block;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-
 h1{
     margin: 3em;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
+}
+
+h2{
+    position:absolute;
+    top: 9em;
+    width: 40%;
+    font-size: 3em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+
+}
+
+h3{
+    color:#092aff;
+    font-family:sans-serif;
+    margin: 0 2em;
+}
+h4{
+    position: absolute;
+    top: 3em;
+    right: 6.5em;
+    font-family: 'Courier New', Courier, monospace;
+    color:#092aff;
+    border-radius: 100px;
+    border: #092aff solid;
+    padding: 0.3em;
+}
+
+.infrmation_card{
+    position: absolute;
+    top: 7em;
+    right: 3em;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 1em;
+    box-shadow: 0 0 0.2em rgb(10, 182, 255);;
+    height: 37em;
+    width: 35%;
+
+}
+.humidity{
+    display: flex;
+    justify-content: space-between;
+    margin: 1em ;
+
+}
+.wind{
+    display: flex;
+    justify-content: space-between;
+    margin: 1em;
+}
+.pressure{
+    display: flex;
+    justify-content: space-between;
+    margin:  1em;
+}
+.visibalty{
+    display: flex;
+    justify-content: space-between;
+    margin: 1em;
+}
+.clouds{
+    display: flex;
+    justify-content: space-between;
+    margin: 1em;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: xx-large;
+    margin-top: 1em ;
+    margin-bottom: 0.5em;
+}
+.date{
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    margin-bottom: 1.5em;
+}
+#h4real{
+    top: 23em;
+    right: 6.5em;   
+}
+#downrow{
+    top: 25em;
+    right: 5em;
+    width: 8%;
+}
+#realtemp{
+    position: absolute;
+    top: 5.5em;
+    font-size: 5em;
+    right: 0.5em;
+
+}
+#iconrow{
+    transform: rotate(40deg);
+    width: 20%;
+    top: 15em;
+    right: 22em;
+    height: 30%;
+
+}
+
+#h4condition{
+    top: 19em;
+    right: 32em;   
 }
