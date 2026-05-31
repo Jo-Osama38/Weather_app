@@ -23,7 +23,11 @@ def home():
         time = None
         date = None
         error = None
- 
+        form_class = "Fwelcom"
+        input_class= "Iwelcom"
+        B_class = "Bwelcom"
+
+        
         if request.method =="POST":
             city_name = request.form.get('city')
             API_KEY = "9548c753dfdf4b609b2182935262805"
@@ -63,17 +67,23 @@ def home():
                 elif condition.lower() in ["ice pellets","blizzard"] or "snow" in condition.lower():
                     classes = ["snow1","snow2"]
                     bg_class = random.choice(classes) 
-            
 
             elif response.status_code != 200:
                 error = "City Not Found"
+            
+            if city_name and condition :
+                form_class = "Ffact"
+                input_class= "Ifact"
+                B_class = "Bfact"
+                
 
 
 
         return render_template('index.html', city_name=city_name, icon=icon, condition=condition, 
                                 temp=temp, FeelingTemp=FeelingTemp, humidity=humidity, windspeed=windspeed,
                                     time=time, date=date,error=error, pressure=pressure,clouds= clouds, 
-                                    visibalty=visibalty, uv=uv, bg_class=bg_class )
+                                    visibalty=visibalty, uv=uv, bg_class=bg_class ,form_class=form_class,
+                                    input_class = input_class, B_class = B_class)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -11,12 +11,13 @@
 <body>
     <div class="body">
 
-        <form method="post">
-            <input type="text" name="city" placeholder="City Name" >
-            <button type="submit"> <i class="fa-solid fa-paper-plane"></i> </button>
+        <form class="{{form_class}}" method="post">
+            <input class="{{input_class}}" type="text" name="city" placeholder="City Name" >
+            <button class="{{B_class}}" type="submit"> <i class="fa-solid fa-paper-plane"></i> </button>
         </form>
         {% if error %}
-            <h1>{{error}}</h1>
+            <h1 class="say_welcome">Welcome In Weaher App <span class="hand"> 👋 </span></h1>
+            <h1 class="choose_city" id="error">{{error}}</h1>
         {% else %}
             {% if city_name %}
 
@@ -57,19 +58,19 @@
                         <h3 class="title"> {{ city_name.capitalize()}} - {{time}} </h3>
                         <h3 class="date"> {{date}} </h3> 
                     </div>
-                    <div class="colom">
+                    <div class="colom" id="colom1">
                         <div class="cards">
                             <span id="humidity" >Humidity</span>
                             <h3 class="num_data" id="num"> {{humidity}} %</h3>
                             <i class="bi bi-droplet"></i>
                         </div>
-                        <div class="cards">
+                        <div class="cards" >
                             <span id="uv" >UV Index</span>
                             <h3 class="num_data" id="num">{{uv}}</h3>
                             <i class="bi bi-sun"></i>
                         </div>
                     </div>
-                    <div class="colom">
+                    <div class="colom" id="colom2">
                         <div class="cards">
                             <span id="wind">Wind</span>
                             <h3 class="num_data"> {{windspeed}} m/s</h3>
@@ -81,7 +82,7 @@
                         <i class="bi bi-speedometer"></i>
                         </div>
                     </div>
-                    <div class="colom">
+                    <div class="colom" id="colom3">
                         <div class="cards">
                             <span id="cloud">Cloud Coverage</span>
                             <h3 class="num_data" id="num" > {{clouds}} %</h3>
@@ -97,7 +98,8 @@
                 </div>
 
             {% else %}
-                <h1>Enter City You Want Know Weather</h1>
+                <h1 class="say_welcome">Welcome In Weaher App <span class="hand"> 👋 </span></h1>
+                <h1 class="choose_city" >Enter City You Want Know Weather</h1>
             {% endif %}
         {% endif %}
     </div>
