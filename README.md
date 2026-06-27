@@ -1,67 +1,46 @@
-#                        Arabic
+# Weather Web App
 
-### مشروع عالم الازرار
+## About the Project
 
-فكره المشروع هي عمل ١٠٠ زر في عالم كل منهم مختلف عن الاخر تكون بمثابه لعبه لكن بشكل مختلف لكن ١٠٠ فكره مختلفه كثير جدا علي فقمت بقليلها ل ٥٠ فكره تكفي لكن لم اجد أفكارا كثيره رائعه فتركت بعض الأزرار للتحديث القادم 
+This project was built as part of my journey to continue learning Flask and the basics of working with APIs.
 
+It is a web application that allows users to check the weather in any country around the world.
 
-### عن المشروع 
+## Features
 
-هو عباره عن فضاء يحتوي علي ٥٠ زر كل زر له مهمه معينه سواء كانت انميشن الازرار او الشاشه او تغير مود الالوان وكده 
-هما دلوقت مش الخمسين زر كلهم شغالين لكن مع التحديث القادم إن شاء الله هيشتغلوا كلهم
+- Search for weather information from anywhere in the world.
+- Fetch real-time weather data from an API.
+- Dynamic backgrounds that change based on the current weather conditions.
+- Modern and attractive user interface.
+- Smooth animations for icons and weather data display.
+- Responsive and visually appealing design.
 
+ 
+## What I Built
 
-### ماذا تعلمت 
+Throughout this project, I worked on many different aspects:
 
+- Developed the backend using Flask.
+- Retrieved weather data from an API.
+- Used Jinja templates to display dynamic data in HTML.
+- Designed and styled the entire interface using CSS.
+- Created dynamic weather-based backgrounds.
+- Added animations to improve the user experience.
+- Built animated icons and animated weather information cards.
 
-- الكثير من الانيمشن الجديدة في CSS 
-- واهم شي هو استخدام فلاسك لعمل for loop في HTML من دونها كان انشاء ٥١ زر أمرا صعبا 
+## What I Learned
 
+This project helped me improve and learn many new skills:
 
-### لينك التجربه 
+- Improved my Flask development skills.
+- Gained more experience with Jinja templating.
+- Learned the fundamentals of working with APIs.
+- Improved my CSS skills, including positioning and layout techniques.
+- Learned how to create and use CSS animations.
+- Improved my ability to build complete web applications from backend to frontend.
 
-لينك : https://yousef38.pythonanywhere.com/
+## How to Run
 
+Simply open the deployed website using the link below and try it yourself.
 
-
-###  التطويرات المخطط لها مستقبلا أن شاء الله 
-
-- ⁠ ⁠اكمال مهام بقيه  الازرار 
--  ⁠جعل فكره الازرار الجديده ممتعه 
-- ⁠ ⁠تحسين تجربه المستخدم
-- ⁠ ⁠تحديث الواجهه وجعل شكلها اكتر جمالا
-
-
-# English (Iam translated from arabic to english to used Chatgpt)
-
-
-### Button World Project 
-
-The idea behind this project was to create 100 buttons in a world where every button is different from the others. Each button has its own purpose, making it feel like a game but in a different way.
-
-But coming up with 100 different ideas was a lot, so I reduced it to 50 ideas. I still couldn't find enough really cool ideas, so I left some buttons for the next update.
-
-
-### About the project
-
-It is a space world that contains 50 buttons. Every button has a different task, like button animations, screen effects, changing color modes, and more.
-
-Right now, not all 50 buttons are finished, but hopefully in the next update they will all have their own jobs.
-
-### What I learned
-
-I learned a lot of new CSS animations.
-
-The most important thing I learned was using Flask to create buttons with a `for loop` in HTML. Without it, creating 51 buttons would have been a very difficult and repetitive task.
-
-### Try it here:
-
-Link: https://yousef38.pythonanywhere.com/
-
-### Future updates (hopefully):
-
-- Finish the tasks for the remaining buttons
-- Make the new button ideas more fun
-- Improve the user experience
-- Update the UI and make it look better
-
+Live Demo: https://youssefosama.pythonanywhere.com/
